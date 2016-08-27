@@ -5,6 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('starter', ['ionic', 'ionic-material','dataServices','ngCordova','bnx.module.facebook', 'directive.g+signin']);
 
+app.directive('hideTabs', function($rootScope) {
+    return {
+        restrict: 'A',
+        link: function($scope, $el) {
+            $rootScope.hideTabs = true;
+            $scope.$on('$destroy', function() {
+                $rootScope.hideTabs = false;
+            });
+        }
+    };
+});
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -18,6 +29,12 @@ app.run(function ($ionicPlatform) {
         }
     });
 })
+app.config(['$ionicConfigProvider', function($ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+    $ionicConfigProvider.navBar.alignTitle('center');
+
+}]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider

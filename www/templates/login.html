@@ -1,67 +1,85 @@
 <ion-view hide-nav-bar="true" ion-side-menu-content drag-content="toggledrag">
    <ion-content scroll="false">
-    <ion-slide-box show-pager="true" ion-slide-tabs ng-hide="islogin" style="background: url(img/welcome/welcome.jpg); background-size:cover;">
-        <ion-slide ion-slide-tab-label="test">
-            <a href="#" style="float:right; padding:10px; font-size:12px; color:#fff; text-decoration: none;" ng-click="setlogin()">BỎ QUA</a>
-            <h4 style="text-align:center; padding-top:30px; color:#fff">GIỚI THIỆU ỨNG DỤNG</h4>
-            <img src="img/welcome/1.png"/>
-            <!--<div class="slider-footer">
-                đây là phần giới thiệu sơ lược về app !
-            </div>-->
-        </ion-slide>
-        <ion-slide ion-slide-tab-label="secondTest">
-            <a href="#" style="float:right; padding:10px; font-size:12px; color:#fff; text-decoration: none;" ng-click="setlogin()">BỎ QUA</a>
-            <h4 style="text-align:center; padding-top:30px; color:#fff">HƯỚNG DẪN SỬ DỤNG</h4>
-             <img src="img/welcome/2.png"/>
-             <!--<div class="slider-footer">
-                đây là phần giới thiệu sơ lược về app !
-            </div>-->
-        </ion-slide>
-        <ion-slide ion-slide-tab-label="<b>boldTest</b>">
-            <a class="ion-ios-close-outline" href="#" style="float:right; padding:5px; font-size:27px; color:#fff; text-decoration:none; padding-right:8px" ng-click="setlogin()"></a>
-            <h4 style="text-align:center; padding-top:30px; color:#fff">BẮT ĐẦU</h4>
-             <img src="img/welcome/3.png"/>
-             <!--<div class="slider-footer">
-                đây là phần giới thiệu sơ lược về app !
-            </div>-->
-        </ion-slide>
-    </ion-slide-box>
-    <div class="slider-footer" ng-hide="islogin">
-    </div>
-    <form ng-hide="!islogin" style="height: 100%; background: url(img/welcome/welcome.jpg); background-size: cover;">
-            <h4 style="color:#fff; text-align:center; padding-top:30px; padding-bottom:50px; margin:0">
-                <img src="img/tappay.png" style="width:80px; border: 1px solid #DF7431; border-radius: 15px;">
+    <form style="height: 100%; background: url(img/welcome/welcome.jpg); background-size: cover;">
+            <h4 style="color:#fff; text-align:center; padding-top:10px; padding-bottom:30px; margin:0">
+                <!--<img src="img/head.png" style="width:100%; border: 1px solid #DF7431; border-radius: 0px;">-->
+                <div class="list">
+                    <div class="item item-avatar">
+                        <img src="img/logothue.png" style="min-width:90px; min-height:65px; margin-top:-10px;">
+                        <h2 style="margin-left:10px; font-weight:600; color:red; font-size:22px">CỤC THUẾ TP HÀ NỘI</h2>
+                        <p style="color:#fff; font-size:18px; margin-left:12px">CHI CỤC THUẾ - CẦU GIẤY</p>
+                    </div>
+                </div>
             </h4>
         <div class="list">
-            <label class="item item-input ion-android-person" style="border-radius:5px; color: #fff; font-size:25px; width: 90%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
-                    <input id="textarea_2" type="text" placeholder="Mã khách hàng" ng-model="user.username" style="padding-left:20px; color: #fff" required>
+            <label class="item item-input ion-card" style="border-radius:5px; color: #fff; font-size:25px; width: 92%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
+                    <input id="textarea_2" type="text" placeholder="Mã số thuế" ng-model="user.username" style="padding-left:20px; color: #fff" required>
            </label>
-          <label class="item item-input ion-android-lock" style="border-radius:5px; font-size:25px;  border-top: none; width: 90%; margin: auto; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; color: #fff;">
+          <label class="item item-input ion-ios-locked" style="border-radius:5px; font-size:25px;  border-top: none; width: 92%; margin: auto; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; color: #fff;">
                     <input id="textarea_2" type="password" placeholder="Mật khẩu" ng-model="user.password" style="padding-left:20px; color: #fff; background: transparent;" required>
           </label>
-          <a class="item" ng-href="#/app/forgot" style="color:#fff; text-decoration: none; float:left; margin-top:-7px">
-              Bạn quên mật khẩu ?
+          <a class="item" ng-href="#/app/forgot" style="color:#fff; text-decoration: none; float:left; margin-top:-7px;">
+              Quên mật khẩu ?
             </a>
         </div>
         <div class="padding">
-            <button class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="login()">Đăng Nhập</button>
+            <button class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="setlogin(); login()">Đăng Nhập</button>
         </div>
-        <div class="button-bar padding">
-            <!--<button class="button button-small button-outline button-positive light-bg icon-left ion-social-facebook waves-effect waves-button waves-light" style="border-color: #387ef5; border-radius: 0;" ng-click="loginFacebook()">Facebook</button>-->
-            <facebook-login auto_logout="true" scope="public_profile" data-auto-logout-link="true"></facebook-login>
-            <facebook app-id="1781038452116644"></facebook>
-            <!--<button class="button button-small button-outline button-assertive light-bg icon-left ion-social-google waves-effect waves-button waves-light" style="border-color: #ef473a;">Google+</button>-->
-            <google-plus-signin  clientid="660978697998-21u1hhp5joo5r8hi8b6rce6njm829n6i.apps.googleusercontent.com" autorender="true" customtargetid="my-custom-element">
-                <div id="my-custom-element"><button>Sign In With Google</button></div>
-            </google-plus-signin>
-        </div>
-        <div class="footer-link text-center">
-            <a ng-href="#/app/register" style="color:#02D652; text-decoration: none;">
+        <div class="login-footer glass" style="bottom:35px; height:35%;">
+            <!--<a ng-href="#/app/register" style="color:#02D652; text-decoration: none;">
               Bạn chưa có tài khoản ?
-            </a>
+            </a>-->
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                <a style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#824927">
+                    <i class="ion-ios-bell" style="font-size:25px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:-5px; margin-top:5%; color:#fff">Thông báo</a>
+            </div>
+
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                <a style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#40961b">
+                    <i class="ion-ios-compose" style="font-size:25px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:6%; margin-top:5%; color:#fff">Đăng ký</a>
+            </div>
+
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#258cdb">
+                    <i class="ion-ios-person" style="font-size:25px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-top:5%; color:#fff">Thông tin<br/> tài khoản</a>
+            </div>
+
+            <br/>
+
+             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#c735e8">
+                    <i class="ion-ios-information" style="font-size:25px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-top:5%; color:#fff">Giới thiệu</a>
+            </div>
+
+             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#ffa100">
+                    <i class="ion-ios-email" style="font-size:25px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:12%; margin-top:5%; color:#fff">Hỗ trợ</a>
+            </div>
+
+             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#03afaa">
+                    <i class="ion-ios-help" style="font-size:25px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:6%; margin-top:5%; color:#fff">Hỏi đáp</a>
+            </div>
         </div>
         <div class="login-footer">  
-            Version 0.0.0.0
+            <a class="item" style="color:#fff; text-decoration: none; float:left; margin-top:-7px; width:50%; border:none">
+                © GNC Media Corp
+            </a>
+            <a class="item" style="color:#fff; text-decoration: none; float:left; margin-top:-7px; width:50%; border:none">
+                Version 0.0.0.1
+            </a>
         </div>
     </form>
 </ion-content>

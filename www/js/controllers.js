@@ -30,14 +30,33 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout
     $scope.$on('$destroy', function () {
         $scope.popover.remove();
     });
+    $scope.groups = [];
+    for (var i = 0; i < 1; i++) {
+        $scope.groups[i] = {
+            name: i,
+            items: [],
+            show: false
+        };
+    }
+        /*
+    * if given group is the selected group, deselect it
+    * else, select the given group
+    */
+    $scope.toggleGroup = function (group) {
+        group.show = !group.show;
+    };
+    $scope.isGroupShown = function (group) {
+        return group.show;
+    };
 })
 .controller('LoginCtrl', function($scope, $state, $window, $rootScope, $stateParams, $ionicLoading, $q, facebook){
     $rootScope.toggledrag = false; 
-    $rootScope.islogin = true;
+    $rootScope.islogin = false;
     $scope.setlogin = function(){
         $rootScope.islogin = true;
     }
     $scope.login = function(){
+         console.log($rootScope.islogin);
          $state.go('app.home', {}, { reload: true });
          $window.location.reload(true);
     }
@@ -100,17 +119,11 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout
          $state.go('app.login', {}, { reload: true });
     }
 })
-.controller('HomeCtrl', function ($scope, $stateParams, ionicMaterialInk) {
-    //ionic.material.ink.displayEffect();
-    ionicMaterialInk.displayEffect();
-
-    // Toggle Code Wrapper
-    var code = document.getElementsByClassName('code-wrapper');
-    for (var i = 0; i < code.length; i++) {
-        code[i].addEventListener('click', function() {
-            this.classList.toggle('active');
-        });
-    }
+.controller('HomeCtrl', function ($scope, $rootScope, $stateParams, $state, ionicMaterialInk) {
+    // if (!$rootScope.islogin) {
+    //         $state.go('app.login');
+    //         console.log($rootScope.islogin);
+    //     }
 })
 .controller('InformationCtrl', function ($scope, $stateParams, ionicMaterialInk) {
     //ionic.material.ink.displayEffect();
