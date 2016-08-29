@@ -56,6 +56,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
     
+    .state('app.nof', {
+        url: '/nof',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/nof.html',
+            }
+        }    
+    })
+
+    .state('app.nofdetail', {
+        url: '/nof-detail',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/nofdetail.html',
+            }
+        }    
+    })
+
     .state('app.login', {
         url: '/login',
         views: {
@@ -179,37 +197,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     })
-
-    .state('app.ink', {
-        url: '/ink',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/ink.html',
-                controller: 'InkCtrl'
-            }
-        }
-    })
-
-    .state('app.motion', {
-        url: '/motion',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/motion.html',
-                controller: 'MotionCtrl'
-            }
-        }
-    })
-
-    .state('app.extensions', {
-        url: '/extensions',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/extensions.html',
-                controller: 'ExtensionsCtrl'
-            }
-        }
-    })
-    ;
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/login');

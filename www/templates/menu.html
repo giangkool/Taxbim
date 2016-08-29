@@ -1,4 +1,10 @@
-﻿<ion-side-menus enable-menu-with-back-views="false">
+﻿<style>
+    .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+        opacity: 1;
+        color:#fff;
+    }
+</style>
+<ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-assertive">
             <ion-nav-back-button class="no-text">
@@ -12,28 +18,32 @@
         </ion-nav-bar>
         <ion-nav-view name="menuContent">
             <!-- TABS -->
-            <ion-tabs ng-class="{'tabs-item-hide': hideTabs}" class="tabs-positive tabs-icon-top">
+            <ion-tabs ng-show="!islogin" class="tabs-positive tabs-icon-top">
 
-            <ion-tab title="Home" icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/app/home">
-                <ion-nav-view name="tab-search"></ion-nav-view>
+            <ion-tab title="Trang chủ" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/app/home">
+                <ion-nav-view></ion-nav-view>
             </ion-tab>
 
-            <ion-tab title="Schedule" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar-outline" href="#/app/schedule">
-                <ion-nav-view name="tab-browse"></ion-nav-view>
+            <ion-tab title="Giới thiệu" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" href="#">
+                <ion-nav-view></ion-nav-view>
             </ion-tab>
 
-            <ion-tab title="Client" icon-off="ion-ios-people" icon-on="ion-ios-people" href="#/app/messager">
-                <ion-nav-view name="tab-playlists"></ion-nav-view>
+            <ion-tab title="Tin tức" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper" href="#">
+                <ion-nav-view></ion-nav-view>
             </ion-tab>
 
-            <ion-tab title="Settings" icon-off="ion-ios-cog-outline" icon-on="ion-ios-cog-outline" href="#/app/setting">
-                <ion-nav-view name="tab-playlists"></ion-nav-view>
+            <ion-tab title="Tài khoản" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#">
+                <ion-nav-view></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="Thoát" icon-off="ion-ios-close-outline" icon-on="ion-ios-close" href="#">
+                <ion-nav-view></ion-nav-view>
             </ion-tab>
 
             </ion-tabs>
         </ion-nav-view>
     </ion-side-menu-content>
-    <ion-side-menu side="left">
+    <!--<ion-side-menu side="left">
         <ion-header-bar class="expanded" style="text-align:center; font-family:'robotolight', sans-serif">
             <img src="img/ava4.jpg" class="avatar motion spin fade" style="left:37%; border-radius:10px; width:70px; height:70px; line-height:1;">
             <div class="menu-bottom" style="font-weight:200">
@@ -42,9 +52,6 @@
         </ion-header-bar>
         <ion-content class="stable-bg has-expanded-header" style="background: #283339;">
             <ion-list>
-                <!--<ion-item nav-clear menu-close href="#/app/home" style="color:#fff">
-                   <a class="ion-home" style="font-family:'robotolight', sans-serif; margin-right:10px ;background: red; color:fff; font-size:25px; border-radius:5px; padding-left:9px; padding-right:9px; font-weight:100"></a> Trang chủ
-                </ion-item>-->
                 <ion-item nav-clear menu-close href="#/app/home" style="color:#fff">
                    <a class="ion-ios-person" style="font-family:'robotolight', sans-serif; margin-right:10px ;background: #8545A6; color:fff; font-size:25px; border-radius:5px; padding-left:11px; padding-right:11px; font-weight:300"></a> Thông tin tài khoản
                 </ion-item>
@@ -68,5 +75,5 @@
                 </ion-item>
             </ion-list>
         </ion-content>
-    </ion-side-menu>
+    </ion-side-menu>-->
 </ion-side-menus>

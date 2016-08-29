@@ -4,56 +4,104 @@
     opacity: 1;
     filter: alpha(opacity=1);
 }
+.blur {
+  height: 10%;
+  width: 100%;
+  margin: -20px auto;
+  /*z-index: -1;*/
+  position: relative;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: url(#blur);
+  filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='10');
+  overflow: hidden;
+}
+
+.blur:after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  /*background: rgba(255, 255, 255, .2);*/
+  position: absolute;
+}
 </style>
-<ion-view view-title="Thông tin tài khoản">
-    <ion-content style="background:#2E3B43">
-       <div class="hero slide-up" style="background-image: url('img/dashboar.jpg'); height:220px">
-            <div class="content" style="top:30px">
-                <div class="avatar motion fade" style="background-image: url('img/ava4.jpg');  border-radius:10px; width:70px; height:70px; line-height:1;"></div>
-                <h4><a class="light" style="font-weight:200">Nguyễn văn A</a></h4>
-                <h4 style="font-weight:100">Số dư : <a style="color: #02D652">15,000,000 </a>VNĐ</h4>
-            </div>
+<ion-view  hide-nav-bar="true" ion-side-menu-content drag-content="toggledrag">
+    <ion-content scroll="false">
+        <form style="height: 100%; background: url(img/welcome/welcome.jpg); background-size: cover;">
+            <h4 style="color:#fff; text-align:center; padding-top:10px; padding-bottom:0px; margin:0">
+                <!--<img src="img/head.png" style="width:100%; border: 1px solid #DF7431; border-radius: 0px;">-->
+                <div class="list">
+                    <div class="item item-avatar">
+                        <img src="img/logothue.png" style="min-width:90px; min-height:65px; margin-top:-10px;">
+                        <h2 style="margin-left:10px; font-weight:600; color:red; font-size:22px">CỤC THUẾ TP HÀ NỘI</h2>
+                        <p style="color:#fff; font-size:18px; margin-left:12px">CHI CỤC THUẾ - CẦU GIẤY</p>
+                    </div>
+                </div>
+            </h4>
+
+        <div class="padding" style="background: rgba(34,34,34,0.75); padding-top: 8px !important; padding-bottom:8px !important">
+             <h2 style="margin-left:10px; font-weight:500; color:red; font-size:19px; font-family: sans-serif;">Công ty: Công ty cổ phần ABC</h2>
+             <p style="color:#fff; font-family: sans-serif; font-size:16px; margin-left:12px; margin-bottom:0">Mã số thuế: 0147098368</p>
         </div>
-        <div class="tabs tabs-dark tabs-icon-top static" style="background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
-            <a class="tab-item">
-                <i class="icon ion-radio-waves"></i> <span style="color:#fff; font-weight:300;"> Nạp tiền vào ví </span>
-            </a>
-            <a class="tab-item">
-                <i class="icon ion-card"></i> <span style="color:#fff; font-weight:300;"> Nạp tiền điện tử </span>
-            </a>
-            <a class="tab-item" href="#/app/information">
-                <i class="icon ion-ios-person" style="color:#fff"></i> <span style="color:#fff; font-weight:300;"> Cập nhật thông tin </span>
-            </a>
-        </div>
-        <a href="#" style="text-decoration: none;"><h4 class="border-top" style="border: none; padding: 0; color: #fff; margin-left: 7px; margin-top:7px; margin-bottom: -2px; font-size: 15px; font-weight: 300;"> Lịch sử giao dịch</h4>
-        <i style="font-family:'robotolight', sans-serif; font-weight:300; margin-top: -15px;float: right; color:#EE560B; margin-right:5px; font-size:13px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; padding-left:5px; padding-right:5px; border-radius:3px">Xem thêm ...</i>
-        </a>
-        
-        <div class="list">
-                <a class="item item-avatar" style="height:60px; margin-top:5px; padding-left:70px">
-                    <!--<img src="img/ava4.jpg">-->
-                    <i class="ion-cash" style="margin-left: -42px; font-size: 28px; color: green;"></i>
-                    <p style="text-transform: uppercase; color:#fff; margin-top: -35px;">Nạp tiền điện thoại</p>
-                    <p style="font-weight:100; font-size:13px">Bạn đã nạp <span style="color:green">500,000 VNĐ</span> | 17/05/2016</p>
+
+        <div class="glass" style="top:35px; height:35%;">
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                <a style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#824927">
+                    <i class="ion-ios-search" style="font-size:30px;"></i>
                 </a>
-                <a class="item item-avatar" style="height:60px; margin-top:1px; padding-left:70px">
-                    <!--<img src="img/ava4.jpg">-->
-                    <i class="ion-cash" style="margin-left: -42px; font-size: 28px; color: green;"></i>
-                    <p style="text-transform: uppercase; color:#fff; margin-top: -35px;">Nạp tiền vào ví</p>
-                    <p style="font-weight:100; font-size:13px">Bạn đã nạp <span style="color:green">50,000,000 VNĐ</span> | 15/05/2016</p>
-                </a>
-                <a class="item item-avatar" style="height:60px; margin-top:1px; padding-left:70px">
-                    <!--<img src="img/ava4.jpg">-->
-                    <i class="ion-cash" style="margin-left: -42px; font-size: 28px; color: green;"></i>
-                    <p style="text-transform: uppercase; color:#fff; margin-top: -35px;">Nạp tiền điện thoại</p>
-                    <p style="font-weight:100; font-size:13px">Bạn đã nạp <span style="color:green">100,000 VNĐ</span> | 09/05/2016</p>
-                </a>
-                <a class="item item-avatar" style="height:60px; margin-top:1px; padding-left:70px">
-                    <!--<img src="img/ava4.jpg">-->
-                    <i class="ion-cash" style="margin-left: -42px; font-size: 28px; color: green;"></i>
-                    <p style="text-transform: uppercase; color:#fff; margin-top: -35px;">Nạp tiền điện thoại</p>
-                    <p style="font-weight:100; font-size:13px">Bạn đã nạp <span style="color:green">100,000 VNĐ</span> | 09/05/2016</p>
-                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:10px; margin-top:5%; color:#fff">Tra cứu</a>
             </div>
+
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                <a ng-href="#/app/nof" style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#40961b">
+                    <i class="ion-ios-bell" style="font-size:30px;"></i>
+                </a>
+                <a href="#/app/nof" class="subdued" style="float:left; margin-left:0; margin-top:5%; color:#fff">Thông báo</a>
+            </div>
+
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:25px; border-radius:60px; color:#fff; border:none; float:left; background:#258cdb">
+                    <i class="ion-ios-compose" style="font-size:30px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:12px; margin-top:5%; color:#fff">Dịch vụ</a>
+            </div>
+
+            <br/>
+
+             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:25px; border-radius:60px; color:#fff; border:none; float:left; background:#c735e8">
+                    <i class="ion-social-usd-outline" style="font-size:30px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-top:5%; color:#fff">Thanh toán</a>
+            </div>
+
+             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#ffa100">
+                    <i class="ion-ios-list" style="font-size:30px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:11%; margin-top:5%; color:#fff">Văn bản</a>
+            </div>
+
+             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
+                 <a style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#f95e11">
+                    <i class="ion-person-stalker" style="font-size:30px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:18%; margin-top:5%; color:#fff">Hỗ trợ</a>
+            </div>
+
+            <br/>
+
+            <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:15px">
+                 <a style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#03afaa">
+                    <i class="ion-ios-help" style="font-size:30px;"></i>
+                </a>
+                <a href="#" class="subdued" style="float:left; margin-left:12%; margin-top:5%; color:#fff">Hỏi đáp</a>
+            </div>
+
+        </div>
+    </form>
     </ion-content>
 </ion-view>
