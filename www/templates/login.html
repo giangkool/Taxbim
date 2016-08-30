@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true" ion-side-menu-content drag-content="toggledrag">
+<ion-view hide-tabs hide-nav-bar="true">
    <ion-content scroll="false">
     <form style="height: 100%; background: url(img/welcome/welcome.jpg); background-size: cover;">
             <h4 style="color:#fff; text-align:center; padding-top:10px; padding-bottom:30px; margin:0">
@@ -18,12 +18,12 @@
           <label class="item item-input ion-ios-locked" style="border-radius:5px; font-size:25px;  border-top: none; width: 92%; margin: auto; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; color: #fff;">
                     <input id="textarea_2" type="password" placeholder="Mật khẩu" ng-model="user.password" style="padding-left:20px; color: #fff; background: transparent;" required>
           </label>
-          <a class="item" ng-href="#/app/forgot" style="color:#fff; text-decoration: none; float:left; margin-top:-7px;">
+          <a class="item" ng-click="showAlert()" style="color:#fff; text-decoration: none; float:left; margin-top:-7px;">
               Quên mật khẩu ?
             </a>
         </div>
         <div class="padding">
-            <button class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="setlogin(); login()">Đăng Nhập</button>
+            <button class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="login()">Đăng Nhập</button>
         </div>
         <div class="login-footer glass" style="bottom:35px; height:35%;">
             <!--<a ng-href="#/app/register" style="color:#02D652; text-decoration: none;">

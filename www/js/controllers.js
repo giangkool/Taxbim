@@ -1,7 +1,23 @@
 angular.module('starter.controllers',  ['ionic', 'ngResource','ngSanitize','ionic.utils','chart.js','bnx.module.facebook', 'directive.g+signin'])
-app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout) {
+app.controller('AppCtrl', function ($scope, $state, $ionicPopup, $ionicModal, $ionicPopover, $timeout) {
   // Form data for the login modal
     $scope.loginData = {};
+    $scope.logout =function(){
+        $state.go('app.login', {}, { reload: true });
+        window.location.reload(true);
+    };
+
+    //thông báo
+    $scope.showAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Thông báo<br/>',
+                template: '<center>Chức năng đang được xây dựng !</center>'
+            });
+
+            alertPopup.then(function(res) {
+                console.log('Thank you for not eating my delicious ice cream cone');
+            });
+    };
 
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
@@ -49,7 +65,7 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout
         return group.show;
     };
 })
-.controller('LoginCtrl', function($scope, $state, $window, $rootScope, $stateParams, $ionicLoading, $q, facebook){
+.controller('LoginCtrl', function($scope, $state, $rootScope, $stateParams, $ionicLoading, $q, facebook){
     $rootScope.toggledrag = false; 
     $rootScope.islogin = false;
     $scope.setlogin = function(){
@@ -58,7 +74,7 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout
     $scope.login = function(){
          console.log($rootScope.islogin);
          $state.go('app.home', {}, { reload: true });
-         $window.location.reload(true);
+         window.location.reload(true);
     }
 })
 .controller('RegisterCtrl', function($scope, $state, $window, $rootScope, $stateParams){

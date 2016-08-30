@@ -1,4 +1,13 @@
 ﻿<style>
+    /*.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+        opacity: 1;
+        color:#fff;
+    }*/
+
+     .tab-item, .tab-item{
+        color: #929292;
+        opacity: .7;
+    }
     .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
         opacity: 1;
         color:#fff;
@@ -18,26 +27,52 @@
         </ion-nav-bar>
         <ion-nav-view name="menuContent">
             <!-- TABS -->
-            <ion-tabs ng-show="!islogin" class="tabs-positive tabs-icon-top">
+            <!--<ion-tabs class="tabs-positive tabs-icon-top">
 
             <ion-tab title="Trang chủ" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/app/home">
-                <ion-nav-view></ion-nav-view>
+                <ion-nav-view name="tab-home"></ion-nav-view>
             </ion-tab>
 
             <ion-tab title="Giới thiệu" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" href="#">
-                <ion-nav-view></ion-nav-view>
+                <ion-nav-view name="tab-info"></ion-nav-view>
             </ion-tab>
 
             <ion-tab title="Tin tức" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper" href="#">
-                <ion-nav-view></ion-nav-view>
+                <ion-nav-view name="tab-new"></ion-nav-view>
             </ion-tab>
 
             <ion-tab title="Tài khoản" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#">
-                <ion-nav-view></ion-nav-view>
+                <ion-nav-view name="tab-account"></ion-nav-view>
             </ion-tab>
 
-            <ion-tab title="Thoát" icon-off="ion-ios-close-outline" icon-on="ion-ios-close" href="#">
-                <ion-nav-view></ion-nav-view>
+            <ion-tab title="Thoát" icon-off="ion-ios-close-outline" icon-on="ion-ios-close" ng-click="logout()">
+                <ion-nav-view name="tab-out"></ion-nav-view>
+            </ion-tab>
+
+            </ion-tabs>-->
+
+
+            <!-- TABS -->
+            <ion-tabs ng-class="{'tabs-item-hide': hideTabs}" class="tabs-positive tabs-icon-top">
+
+            <ion-tab title="Trang chủ" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/app/home">
+                <ion-nav-view name="tab-search"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="Giới thiệu" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" ng-click="showAlert()">
+                <ion-nav-view name="tab-browse"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="Tin tức" icon-off="ion-ios-paper-outline" icon-on="ion-ios-paper" ng-click="showAlert()">
+                <ion-nav-view name="tab-playlists"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="Tài khoản" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" ng-click="showAlert()">
+                <ion-nav-view name="abc"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="Thoát" icon-off="ion-ios-close-outline" icon-on="ion-ios-close" href="#/app/login">
+                <ion-nav-view name="tab-playlists"></ion-nav-view>
             </ion-tab>
 
             </ion-tabs>
