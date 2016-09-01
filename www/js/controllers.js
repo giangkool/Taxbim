@@ -7,6 +7,62 @@ app.controller('AppCtrl', function ($scope, $state, $ionicPopup, $ionicModal, $i
         window.location.reload(true);
     };
 
+   //background app runing pushnotification
+    document.addEventListener('deviceready', function () {
+        if (cordova.backgroundapp.resumeType == 'launch') {
+            renderUi();
+        }
+    }, false);
+    document.addEventListener("resume", function () {
+        if (cordova.backgroundapp.resumeType == 'normal-launch') {
+            renderUi();
+        } else if (cordova.backgroundapp.resumeType == 'programmatic-launch') {
+            cordova.backgroundapp.show();
+        }
+    }, false);
+
+   $scope.int = function abc(){
+       ionic.Platform.ready(function () {
+
+           window.plugins.pushNotification.register(
+                successHandler,
+                errorHandler,
+                {
+                    "senderID": "345481149877",
+                    "ecb": "onNotificationGCM",
+                    "badge": "true",
+                    "sound": "true",
+                    "alert": "true"
+                });
+            function successHandler(result) {
+                alert("Result " + result);
+            }
+            function errorHandler(error) {
+                alert("error " + result);
+            }
+            window.onNotificationGCM = function(e) {
+                switch (e.event) {
+                    case 'registered':
+                        prompt("Copy Register Id", e.regid);
+                        // alert("ID: " + e.regid);
+                        sendRequest(e.regid);
+                        alert("Successfully Registered");
+                        break;
+                    case 'message':
+                        // alert(JSON.stringify(e.payload));
+                        // prompt("imessege", e.payload.message);
+                        alert("imessage: " + e.payload.message);
+                        var sound = new Media("assets/www/" + e.soundname);
+                        sound.play();
+                        break;
+                    default:
+                        alert("unknown event");
+                }
+            }
+
+       });
+   }
+
     //thông báo
     $scope.showAlert = function() {
             var alertPopup = $ionicPopup.alert({
@@ -17,52 +73,6 @@ app.controller('AppCtrl', function ($scope, $state, $ionicPopup, $ionicModal, $i
             alertPopup.then(function(res) {
                 console.log('Thank you for not eating my delicious ice cream cone');
             });
-    };
-
-    var navIcons = document.getElementsByClassName('ion-navicon');
-    for (var i = 0; i < navIcons.length; i++) {
-        navIcons.addEventListener('click', function () {
-            this.classList.toggle('active');
-        });
-    }
-
-    // .fromTemplate() method
-    var template = '<ion-popover-view>' +
-                    '   <ion-header-bar>' +
-                    '       <h1 class="title">My Popover Title</h1>' +
-                    '   </ion-header-bar>' +
-                    '   <ion-content class="padding">' +
-                    '       My Popover Contents' +
-                    '   </ion-content>' +
-                    '</ion-popover-view>';
-
-    $scope.popover = $ionicPopover.fromTemplate(template, {
-        scope: $scope
-    });
-    $scope.closePopover = function () {
-        $scope.popover.hide();
-    };
-    //Cleanup the popover when we're done with it!
-    $scope.$on('$destroy', function () {
-        $scope.popover.remove();
-    });
-    $scope.groups = [];
-    for (var i = 0; i < 1; i++) {
-        $scope.groups[i] = {
-            name: i,
-            items: [],
-            show: false
-        };
-    }
-        /*
-    * if given group is the selected group, deselect it
-    * else, select the given group
-    */
-    $scope.toggleGroup = function (group) {
-        group.show = !group.show;
-    };
-    $scope.isGroupShown = function (group) {
-        return group.show;
     };
 })
 .controller('LoginCtrl', function($scope, $state, $rootScope, $stateParams, $ionicLoading, $q, facebook){

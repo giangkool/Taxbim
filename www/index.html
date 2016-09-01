@@ -26,6 +26,23 @@
     <script src="js/facebook.js"></script>
     <script src="js/google-plus-signin.js"></script>
     <!--<script src="js/slidingTabsDirective.js"></script>-->
+    <!--<script>
+        function onDeviceReady() {
+            //background app runing pushnotification
+            document.addEventListener('deviceready', function () {
+                if (cordova.backgroundapp.resumeType == 'launch') {
+                    renderUi();
+                }
+            }, false);
+            document.addEventListener("resume", function () {
+                if (cordova.backgroundapp.resumeType == 'normal-launch') {
+                    renderUi();
+                } else if (cordova.backgroundapp.resumeType == 'programmatic-launch') {
+                    cordova.backgroundapp.show();
+                }
+            }, false);
+        };
+    </script>-->
 </head>
 <body ng-app="starter">
     <ion-nav-view></ion-nav-view>
