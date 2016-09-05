@@ -51,6 +51,7 @@ app.controller('AppCtrl', function ($scope, $state, $ionicPopup, $ionicModal, $i
                     case 'message':
                         // alert(JSON.stringify(e.payload));
                         // prompt("imessege", e.payload.message);
+                        console.log(e);
                         alert("imessage: " + e.payload.message);
                         var sound = new Media("assets/www/" + e.soundname);
                         sound.play();
