@@ -1,19 +1,16 @@
 angular.module('dataServices', [])
-
-.factory('FaceService', function() {
-
-//for the purpose of this example I will store user data on ionic local storage but you should save it on a database
-
-  var setUser = function(user_data) {
-    window.localStorage.starter_facebook_user = JSON.stringify(user_data);
-  };
-
-  var getUser = function(){
-    return JSON.parse(window.localStorage.starter_facebook_user || '{}');
-  };
-
-  return {
-    getUser: getUser,
-    setUser: setUser
-  };
+.factory('contentService', function($resource) {
+  var catalogs = [];
+  return{
+    listCatalogs: function () {
+                catalogs = $resource('http://icare.bigpay.vn/gcm/catalog/gcm').query();
+                return catalogs;
+            },
+    Saveregid: function (regid){
+      var url = 'http://icare.bigpay.vn/gcm/';
+      var parameter = regid;
+      return $http.post(url, parameter);
+    }
+  }
 });
+
