@@ -114,89 +114,30 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }    
     })
     
-    .state('app.information', {
-        url: '/information',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/information.html',
-                controller: 'InformationCtrl'
-            }
-        }
-    })
-    
-    .state('app.epayment', {
-        url: '/epayment',
+    .state('app.search', {
+        url: '/search',
         views: {
             'menuContent':{
-                templateUrl: 'templates/epayment.html',
-                // controller: 'EpaymentCtrl'
+                templateUrl: 'templates/search.html',
+                controller: 'SearchCtrl'
             },
             'fabContent': {
                 template: ''
             }
         }    
     })
-    
-    .state('app.cashout', {
-        url: '/cashout',
+
+    .state('app.searchdetail', {
+        url: '/search-detail',
         views: {
             'menuContent':{
-                templateUrl: 'templates/cashout.html',
-                // controller: 'EpaymentCtrl'
+                templateUrl: 'templates/searchdetail.html',
+                // controller: 'SearchdetailCtrl'
             },
             'fabContent': {
                 template: ''
             }
         }    
-    })
-    
-    .state('app.cashinatm', {
-        url: '/cashinatm',
-        views: {
-            'menuContent':{
-                templateUrl: 'templates/cashinatm.html',
-                // controller: 'EpaymentCtrl'
-            },
-            'fabContent': {
-                template: ''
-            }
-        }    
-    })
-    
-    .state('app.tranfer', {
-        url: '/tranfer',
-        views: {
-            'menuContent':{
-                templateUrl: 'templates/tranfer.html',
-                // controller: 'EpaymentCtrl'
-            },
-            'fabContent': {
-                template: ''
-            }
-        }    
-    })
-    
-    .state('app.pay', {
-        url: '/pay',
-        views: {
-            'menuContent':{
-                templateUrl: 'templates/pay.html',
-                // controller: 'EpaymentCtrl'
-            },
-            'fabContent': {
-                template: ''
-            }
-        }    
-    })
-    
-    .state('app.lists', {
-        url: '/lists',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/lists.html',
-                controller: 'ListsCtrl'
-            }
-        }
     })
 
     // if none of the above states are matched, use this as the fallback

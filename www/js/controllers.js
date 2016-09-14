@@ -68,10 +68,9 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
             window.onNotificationGCM = function (e) {
                 switch (e.event) {
                     case 'registered':
-                    save(e.regid);
                     //   contentService.Saveregid(e.regid);
                     //   console.log("giang "+ contentService.Saveregid(e.regid));
-
+                        save(e.regid);
                         // prompt("Copy Register Id", e.regid);
                         // sendRequest(e.regid);
                         // alert("Successfully Registered");
@@ -79,7 +78,7 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
                     case 'message':
                         // alert(JSON.stringify(e.payload));
                         // prompt("imessege", e.payload.message);
-                        console.log(e);
+                        // console.log(e);
                         alert("imessage: " + e.payload.message);
                         var sound = new Media("assets/www/" + e.soundname);
                         sound.play();
@@ -92,8 +91,7 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
     }
 
     function save(gcmid){
-    contentService.Saveregid(gcmid).$promise.then(function (response) {
-                          alert("1");
+    contentService.Saveregid(gcmid).then(function (response) {
                             console.log(response);
                         });
     }
@@ -137,19 +135,25 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
     .controller('NofCtrl', function ($scope, $state, $window, $rootScope, $stateParams, contentService) {
         // $scope.catalogs = contentService.listCatalogs();
     })
+    .controller('SearchCtrl', function ($scope, $state, $window, $rootScope, $stateParams, contentService) {
+            $scope.taxlist = [
+            { value: 'Danh sách đội thuế chi cục cầu giấy' },
+            { value: 'Ngân hàng Ngoại Thương Việt Nam - Vietcombank', id: '970436' },
+            { value: 'Ngân hàng Kỹ thương Việt Nam - Techcombank', id: '970407' },
+        ];
+        $scope.taxname = $scope.taxlist[0];
+        $scope.detail = function (){
+            window.location.href = '#/app/search-detail';
+        };
+    })
+    .controller('SearchdetailCtrl', function ($scope, $state, $window, $rootScope, $stateParams, contentService) {
+        
+    })
     .controller('HomeCtrl', function ($scope, $rootScope, $stateParams, $state, ionicMaterialInk) {
         // if (!$rootScope.islogin) {
         //         $state.go('app.login');
         //         console.log($rootScope.islogin);
         //     }
-    })
-    .controller('InformationCtrl', function ($scope, $stateParams, ionicMaterialInk) {
-        //ionic.material.ink.displayEffect();
-        ionicMaterialInk.displayEffect();
-        $scope.enable = false;
-        $scope.editpass = function () {
-            $scope.enable = true;
-        }
+    });
 
-    })
 

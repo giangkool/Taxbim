@@ -1,0 +1,25 @@
+<ion-view title="THÔNG TIN TRA CỨU" hide-back-button="false">
+   <ion-content scroll="false" style="background: url(img/welcome/welcome.jpg); background-size: cover;">
+    <form style="margin-bottom:60px">
+        <div class="padding" style="background: rgba(34,34,34,0.75); padding-top: 12px !important; padding-bottom:12px !important">
+             <h2 style="margin-left:0px; margin-bottom:0; font-weight:500; color:#fff; font-size:17px; font-family: sans-serif;">Thông Tin Tra Cứu Thuế Theo Đội</h2>
+        </div>
+       <center style="margin-top:10px; margin-bottom:5px"> 
+            <div class="padding">
+                <label class="item item-input ion-pound" style="border-radius:5px; color: #fff; font-size:17px; width: 100%; margin: auto; margin-bottom:15px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
+                            <input id="textarea_2" type="text" placeholder="Tên đội thuế"  style="padding-left:10px; color: #fff" required>
+                </label>
+
+                <label class="item item-input" style="border-radius:5px; height:45px; color: #fff; font-size:17px; width: 100%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;"> 
+                                <select ng-model="taxname" ng-options="tax.value for tax in taxlist" required style="width:95%; background: transparent; color: #fff; border: none;">
+                                </select>
+                </label>
+            </div>
+
+            <div class="padding">
+            <button class="button waves-effect waves-light button-assertive" style="; color:#fff; font-size:15px; opacity:.7; background: black" ng-click="detail()">Tiếp</button>
+            </div>
+       </center>
+    </form>
+</ion-content>
+</ion-view>

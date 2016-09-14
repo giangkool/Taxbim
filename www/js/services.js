@@ -1,5 +1,5 @@
 angular.module('dataServices', [])
-.factory('contentService', function($resource) {
+.factory('contentService', function($resource, $http) {
   var catalogs = [];
   return{
     listCatalogs: function () {
@@ -7,9 +7,9 @@ angular.module('dataServices', [])
                 return catalogs;
             },
     Saveregid: function (regid){
-      var url = 'http://icare.bigpay.vn/gcm/';
-      var parameter = regid;
-      return $http.post(url, parameter);
+                //var parameter = JSON.stringify({regid});
+                var url = 'http://icare.bigpay.vn/gcm/' + regid ;
+                return $http.post(url);
     }
   }
 });
