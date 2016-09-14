@@ -140,6 +140,71 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }    
     })
 
+    .state('app.service', {
+        url: '/service',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/service.html',
+                // controller: 'SearchdetailCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
+    .state('app.info', {
+        url: '/info',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/info.html',
+                // controller: 'SearchdetailCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
+    .state('app.account', {
+        url: '/account',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/account.html',
+                // controller: 'SearchdetailCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
+     .state('app.news', {
+        url: '/news',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/news.html',
+                // controller: 'SearchdetailCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
+    .state('app.document', {
+        url: '/document',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/document.html',
+                // controller: 'SearchdetailCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/login');
 });
