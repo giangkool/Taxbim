@@ -1,0 +1,40 @@
+<style>
+    #textarea::-webkit-input-placeholder
+    {
+        color: #F0F0F0;
+    }
+</style>
+<ion-view title="THÔNG TIN HỖ TRỢ" hide-back-button="false">
+    <ion-content scroll="false" style="background: url(img/welcome/welcome.jpg); background-size: cover;">
+        <form style="margin-bottom:60px">
+            <div class="padding" style="background: rgba(34,34,34,0.75); padding-top: 12px !important; padding-bottom:12px !important">
+                <h2 style="margin-left:0px; margin-bottom:0; font-weight:500; color:#fff; font-size:17px; font-family: sans-serif;">Thông Tin Liên Hệ Cần Gửi</h2>
+            </div>
+            <center style="margin-top:10px; margin-bottom:5px">
+                <div class="padding">
+                    <label class="item item-input" style="border-radius:5px; height:45px; color: #fff; font-size:17px; width: 100%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;"> 
+                <select style="width:95%; background: transparent; color: #fff; border: none;">
+                    <option value="volvo">Chọn đội</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+             </label>
+                    <label class="item item-input" style="border-radius:5px; height:auto; color: #fff; font-size:17px; width: 100%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;"> 
+                                <textarea id="textarea" rows="4" style="background:transparent; color:#fff; text-align:left" placeholder="Nội dung cần gửi ..." ></textarea>
+                </label>
+                    <label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; width: 100%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
+                    <input id="textarea_2" type="text" placeholder="Mã xác thực" style="padding-left:0px; color: #fff" required>
+                </label>
+                <label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; float:left; width: 30%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
+                            <input id="textarea_2" type="text" placeholder="Ex541az0" style="padding-left:0px; color: #fff; background: transparent" readonly>
+                </label>
+                </div>
+
+                <div class="padding" style="margin-top:40px">
+                    <button class="button waves-effect waves-light button-assertive" style="; color:#fff; font-size:15px; opacity:.7; background: black" ng-click="showError()">Gửi</button>
+                </div>
+            </center>
+        </form>
+    </ion-content>
+</ion-view>

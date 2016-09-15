@@ -205,6 +205,32 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }    
     })
 
+    .state('app.support', {
+        url: '/support',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/support.html',
+                controller: 'SupportCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
+    .state('app.faq', {
+        url: '/faq',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/faq.html',
+                controller: 'FaqCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/login');
 });

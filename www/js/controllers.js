@@ -149,6 +149,31 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
     .controller('SearchdetailCtrl', function ($scope, $state, $window, $rootScope, $stateParams, contentService) {
         
     })
+    .controller('SupportCtrl', function ($scope, $state, $window, $rootScope, $stateParams, $ionicPopup, contentService) {
+        //thông báo
+     $scope.showError = function () {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Thông báo<br/>',
+                template: '<center><h5 style="font-size: 16px; color: red;">Mã xác thực không chính xác !<br/>xin vui lòng nhập lại</h5></center>'
+            });
+
+            alertPopup.then(function (res) {
+                console.log('Thank you for not eating my delicious ice cream cone');
+            });
+        };
+    })
+    .controller('FaqCtrl', function ($scope, $state, $window, $rootScope, $ionicPopup, $stateParams, contentService) {
+        $scope.faq = false;
+        $scope.showfaq = function(){
+            var alertPopup = $ionicPopup.alert({
+                title: 'Thông báo<br/>',
+                template: '<center><h5 style="font-size: 16px; color: green;">Câu hỏi đã được ghi nhận !<br/> Vui lòng chờ phản hồi từ CỤC THUẾ</h5></center>'
+            });
+             alertPopup.then(function (res) {
+               $scope.faq = true;
+            });
+        };
+    })
     .controller('HomeCtrl', function ($scope, $rootScope, $stateParams, $state, ionicMaterialInk) {
         // if (!$rootScope.islogin) {
         //         $state.go('app.login');
