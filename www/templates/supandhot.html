@@ -1,0 +1,53 @@
+
+<style>
+    .hero.slide-up * {
+    opacity: 1;
+    filter: alpha(opacity=1);
+}
+.blur {
+  height: 10%;
+  width: 100%;
+  margin: -20px auto;
+  /*z-index: -1;*/
+  position: relative;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: url(#blur);
+  filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='10');
+  overflow: hidden;
+}
+
+.blur:after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  /*background: rgba(255, 255, 255, .2);*/
+  position: absolute;
+}
+</style>
+<ion-view title="THÔNG TIN HỖ TRỢ VÀ HOTLINE"  hide-back-button="false">
+    <ion-content scroll="false">
+        <form style="height: 100%; background: url(img/welcome/welcome.jpg); background-size: cover;">
+
+        <div class="glass" style="top:35px; height:35%;">
+            <div class="item" style="width:40%; float:left; border:none; margin-left:13%; padding-top:0">
+                <a ng-href="#/app/support" style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#824927">
+                    <i class="ion-ios-email-outline" style="font-size:30px;"></i>
+                </a>
+                <a href="#/app/support" class="subdued" style="float:left; margin-left:-17px; margin-top:5%; color:#fff">Thông tin hỗ trợ</a>
+            </div>
+
+            <div class="item" style="width:40%; float:left; border:none; margin-left:3%; padding-top:0">
+                <a ng-href="#/app/hotline" style="width:70px; padding-top:20px; padding-bottom:20px; padding-left:23px; border-radius:60px; color:#fff; border:none; float:left; background:#40961b">
+                    <i class="ion-ios-telephone-outline" style="font-size:30px;"></i>
+                </a>
+                <a href="#/app/hotline" class="subdued" style="float:left; margin-left:-17px; margin-top:5%; color:#fff">Thông tin Hotline</a>
+            </div>
+        </div>
+    
+    </form>
+    </ion-content>
+</ion-view>

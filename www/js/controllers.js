@@ -2,6 +2,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource', 'ngSanitize', 'dat
 app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ionicModal, $ionicPopover, $timeout, contentService) {
     // Form data for the login modal
     $scope.loginData = {};
+    $scope.first = false;
     $scope.logout = function () {
         $state.go('app.login', {}, { reload: true });
         window.location.reload(true);
@@ -106,6 +107,40 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
             console.log('Thank you for not eating my delicious ice cream cone');
         });
     };
+
+
+    // Form data for the login modal
+        $scope.changePassData = {};
+
+        // Create the login modal that we will use later
+        $ionicModal.fromTemplateUrl('templates/changepass.html', {
+            scope: $scope
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        // Triggered in the login modal to close it
+        $scope.closeChangePass = function () {
+            $scope.modal.hide();
+        };
+
+        // Open the login modal
+        $scope.changePass = function () {
+            $scope.modal.show();
+        };
+
+                // Perform the login action when the user submits the login form
+        $scope.doChangePass = function () {
+            $scope.first = true;
+            console.log('Doing change pass', $scope.loginData);
+
+            // Simulate a login delay. Remove this and replace with your login
+            // code if using a login system
+            $timeout(function () {
+                $scope.closeChangePass();
+            }, 1000);
+        };
+
 })
     .controller('LoginCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicLoading, $q, facebook) {
         $rootScope.toggledrag = false;
@@ -115,16 +150,41 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
         }
         $scope.login = function () {
             console.log($rootScope.islogin);
-            // $state.go('app.home', {}, { reload: true });
             window.location.href = '#/app/home';
             window.location.reload(true);
         }
     })
-    .controller('RegisterCtrl', function ($scope, $state, $window, $rootScope, $stateParams) {
-        $scope.login = function () {
-            $state.go('app.home', {}, { reload: true });
-            $window.location.reload(true);
-        }
+    .controller('RegisterCtrl', function ($scope, $state, $window, $ionicPopup, $rootScope, $stateParams) {
+        $scope.logininfo = false;
+        $scope.registerinfo = true;
+        $scope.complete = true;
+
+        //thông báo
+         $scope.showError = function () {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Thông báo<br/>',
+                template: '<center><h5 style="font-size: 16px; color: red;">Mã xác thực không chính xác !<br/>xin vui lòng nhập lại</h5></center>'
+            });
+
+            alertPopup.then(function (res) {
+                $scope.logininfo = true;
+                $scope.registerinfo = false;
+            });
+        };
+
+        //hoàn tất đăng ký
+        $scope.showcomplete = function(){
+            var alertPopup = $ionicPopup.alert({
+                title: 'Thông báo<br/>',
+                template: '<center><h5 style="font-size: 16px; color: red;">Thông tin của bạn chưa đúng !<br/>xin vui lòng nhập lại</h5></center>'
+            });
+
+            alertPopup.then(function (res) {
+                $scope.logininfo = true;
+                $scope.registerinfo = true;
+                $scope.complete = false;
+            });
+        };
     })
     .controller('ForgotCtrl', function ($scope, $state, $window, $rootScope, $stateParams) {
         $scope.forgot = function () {

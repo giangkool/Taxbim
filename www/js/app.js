@@ -88,6 +88,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }    
     })
     
+
     .state('app.register', {
         url: '/register',
         views: {
@@ -205,12 +206,38 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }    
     })
 
+    .state('app.supandhot', {
+        url: '/supandhot',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/supandhot.html',
+                // controller: 'SupandhotCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
     .state('app.support', {
         url: '/support',
         views: {
             'menuContent':{
                 templateUrl: 'templates/support.html',
                 controller: 'SupportCtrl'
+            },
+            'fabContent': {
+                template: ''
+            }
+        }    
+    })
+
+    .state('app.hotline', {
+        url: '/hotline',
+        views: {
+            'menuContent':{
+                templateUrl: 'templates/hotline.html',
+                // controller: 'HotlineCtrl'
             },
             'fabContent': {
                 template: ''
