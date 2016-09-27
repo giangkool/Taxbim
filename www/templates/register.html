@@ -88,7 +88,7 @@
             </div>
 
             <div class="padding" ng-show="!registerinfo">
-                 <button class="button waves-effect waves-light button-assertive" style="; color:#fff; font-size:15px; opacity:.7; background: green" ng-click="showcomplete()">Tiếp</button>
+                 <button  class="button waves-effect waves-light button-assertive" style="; color:#fff; font-size:15px; opacity:.7; background: green" ng-click="showcomplete(); demom()">Tiếp</button>
             </div>
         
             <!--hoan tat dang ky-->
@@ -114,18 +114,6 @@
             </div>
 
        </center>
-
-       <script>
-            function reload(){
-            console.log("abcd")
-            $("html, body").animate({
-                scrollTop: 0
-            }, 600);
-            // $(document.body).scrollTop(0);
-            // window.location.reload(true);
-            };
-        </script>
-
     </form>
 </ion-content>
 </ion-view>

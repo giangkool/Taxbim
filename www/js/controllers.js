@@ -108,6 +108,17 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
         });
     };
 
+    //thông báo đăng nhập
+    $scope.Relogin = function () {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Thông báo<br/>',
+            template: '<center>Vui lòng đăng nhập để sử dụng dịch vụ !</center>'
+        });
+
+        alertPopup.then(function (res) {
+            console.log('Thank you for not eating my delicious ice cream cone');
+        });
+    };
 
     // Form data for the login modal
         $scope.changePassData = {};
@@ -154,10 +165,15 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
             window.location.reload(true);
         }
     })
-    .controller('RegisterCtrl', function ($scope, $state, $window, $ionicPopup, $rootScope, $stateParams) {
+    .controller('RegisterCtrl', function ($scope, $state, $window, $ionicPopup, $rootScope, $stateParams, $location, $anchorScroll ) {
         $scope.logininfo = false;
         $scope.registerinfo = true;
         $scope.complete = true;
+
+      $scope.demom = function reload(){
+            alert("123")
+                   $window.scrollTo(0,0);   
+            };
 
         //thông báo
          $scope.showError = function () {

@@ -34,11 +34,11 @@
               Bạn chưa có tài khoản ?
             </a>-->
             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
-                <a badge="notif" ng-href="#" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#824927">
+                <a badge="notif" ng-click="Relogin()" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#824927">
                     <i class="ion-ios-bell" style="font-size:25px;"></i>
                 </a>
                 <ion-badge ng-show="has_unread" item-right style="color:#fff; margin-left:-17px"><i style="background: red; padding-top: 7px; padding-left: 7px; padding-bottom: 2px; padding-right: 7px; border-radius: 3px;">{{notif}}</i></ion-badge>
-                <a href="#" class="subdued" style="float:left; margin-left:-5px; margin-top:5%; color:#fff">Thông báo</a>
+                <a ng-click="Relogin()" class="subdued" style="float:left; margin-left:-5px; margin-top:5%; color:#fff">Thông báo</a>
             </div>
 
             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
@@ -49,10 +49,10 @@
             </div>
 
             <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
-                 <a ng-href="#/app/account" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#258cdb">
+                 <a ng-click="Relogin()" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#258cdb">
                     <i class="ion-ios-person" style="font-size:25px;"></i>
                 </a>
-                <a href="#/app/account" class="subdued" style="float:left; margin-top:5%; color:#fff">Thông tin<br/> tài khoản</a>
+                <a ng-click="Relogin()" class="subdued" style="float:left; margin-top:5%; color:#fff">Thông tin<br/> tài khoản</a>
             </div>
 
             <br/>
@@ -65,17 +65,17 @@
             </div>
 
              <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
-                 <a ng-href="#/app/supandhot" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#ffa100">
+                 <a ng-click="Relogin()" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#ffa100">
                     <i class="ion-ios-email" style="font-size:25px;"></i>
                 </a>
-                <a href="#/app/supandhot" class="subdued" style="float:left; margin-left:12%; margin-top:5%; color:#fff">Hỗ trợ</a>
+                <a ng-click="Relogin()" class="subdued" style="float:left; margin-left:12%; margin-top:5%; color:#fff">Hỗ trợ</a>
             </div>
 
              <div class="item" style="width:30%; float:left; border:none; margin-left:3%; padding-top:0">
-                 <a ng-href="#/app/faq" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#03afaa">
+                 <a ng-click="Relogin()" style="width:60px; padding-top:15px; padding-bottom:15px; border-radius:50px; color:#fff; border:none; float:left; background:#03afaa">
                     <i class="ion-ios-help" style="font-size:25px;"></i>
                 </a>
-                <a href="#/app/faq" class="subdued" style="float:left; margin-left:6%; margin-top:5%; color:#fff">Hỏi đáp</a>
+                <a ng-click="Relogin()" class="subdued" style="float:left; margin-left:6%; margin-top:5%; color:#fff">Hỏi đáp</a>
             </div>
         </div>
         <div class="login-footer">  
