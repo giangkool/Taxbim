@@ -170,10 +170,9 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
         $scope.registerinfo = true;
         $scope.complete = true;
 
-      $scope.demom = function reload(){
-            alert("123")
-                   $window.scrollTo(0,0);   
-            };
+         $scope.scroll = function () {
+            $anchorScroll();
+        };
 
         //thông báo
          $scope.showError = function () {
