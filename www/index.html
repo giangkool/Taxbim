@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta id="viewport" name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, minimum-scale=1" />
     <title>Tax-Bim</title>
     <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
@@ -20,7 +20,7 @@
     <script src="lib/angular-resource/angular-resource.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
-    
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="cordova.js"></script>
     <script src="js/ng-cordova.js"></script>
     
@@ -48,6 +48,34 @@
             }, false);
         };
     </script>-->
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for device API libraries to load
+        //
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+        
+        // device APIs are available
+        //
+        function onDeviceReady() {
+            // Register the event listener
+            document.addEventListener("backbutton", onBackKeyDown, false);
+            cordova.plugins.notification.badge.hasPermission(function (granted) {
+                console.log('Permission has been granted: ' + granted);
+            });
+            cordova.plugins.notification.badge.registerPermission(function (granted) {
+                console.log('Permission has been granted: ' + granted);
+            });
+        }
+
+        // Handle the back button
+        //
+        function onBackKeyDown() {
+            event.preventDefault(); // EDIT
+            navigator.app.exitApp(); // exit the app
+        }
+    </script>
 </head>
 <body ng-app="starter">
     <ion-nav-view></ion-nav-view>

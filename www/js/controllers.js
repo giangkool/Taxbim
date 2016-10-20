@@ -153,16 +153,47 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
         };
 
 })
-    .controller('LoginCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicLoading, $q, facebook) {
+    .controller('LoginCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicLoading, $ionicPopup, $q, facebook) {
         $rootScope.toggledrag = false;
         $rootScope.islogin = false;
+
         $scope.setlogin = function () {
             $rootScope.islogin = true;
         }
-        $scope.login = function () {
-            console.log($rootScope.islogin);
-            window.location.href = '#/app/home';
-            window.location.reload(true);
+        $scope.login = function (user) {
+            console.log(user);
+            if(user == undefined)
+            {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Thông báo<br/>',
+                    template: '<center><h5 style="font-size: 16px; color: red;">Tài khoản hoặc mật khẩu không chính xác !<br/>xin vui lòng nhập lại</h5></center>'
+                });
+
+                alertPopup.then(function (res) {
+                    $scope.logininfo = true;
+                    $scope.registerinfo = false;
+                });
+            }
+            else
+            {
+                 if(user.username == "admin" && user.password == "123456")
+                {
+                    window.location.href = '#/app/home';
+                    window.location.reload(true);
+                }
+                else
+                {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Thông báo<br/>',
+                        template: '<center><h5 style="font-size: 16px; color: red;">Tài khoản hoặc mật khẩu không chính xác !<br/>xin vui lòng nhập lại</h5></center>'
+                    });
+
+                    alertPopup.then(function (res) {
+                        $scope.logininfo = true;
+                        $scope.registerinfo = false;
+                    });
+                }
+            }
         }
     })
     .controller('RegisterCtrl', function ($scope, $state, $window, $ionicPopup, $rootScope, $stateParams, $location, $anchorScroll ) {
@@ -171,6 +202,7 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
         $scope.complete = true;
 
          $scope.scroll = function () {
+            // $location.hash("#" + hotel);
             $anchorScroll();
         };
 

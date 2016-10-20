@@ -13,10 +13,10 @@
             </h4>
         <div class="list">
             <label class="item item-input ion-card" style="border-radius:5px; color: #fff; font-size:25px; width: 92%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
-                    <input id="textarea_2" type="text" placeholder="Mã số thuế" ng-model="user.username" style="padding-left:20px; color: #fff" required>
+                    <input  type="text" placeholder="Mã số thuế" ng-model="user.username" style="padding-left:20px; color: #fff" required>
            </label>
           <label class="item item-input ion-ios-locked" style="border-radius:5px; font-size:25px;  border-top: none; width: 92%; margin: auto; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; color: #fff;">
-                    <input id="textarea_2" type="password" placeholder="Mật khẩu" ng-model="user.password" style="padding-left:20px; color: #fff; background: transparent;" required>
+                    <input type="password" placeholder="Mật khẩu" ng-model="user.password" style="padding-left:20px; color: #fff; background: transparent;" required>
           </label>
           <a class="item" ng-href="#/app/forgot" style="color:#fff; text-decoration: none; float:left; margin-top:-7px; width:50%;">
               Quên mật khẩu ?
@@ -26,10 +26,10 @@
             </a>
         </div>
         <div class="padding">
-            <button ng-show="!first" class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="changePass()">Đăng Nhập</button>
-            <button ng-show="first"  class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="login(); int()">Đăng Nhập</button>
+            <!--<button ng-show="!first" class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="changePass()">Đăng Nhập</button>-->
+            <button class="button waves-effect waves-light button-full button-assertive" style="; color:#fff; font-size:15px; opacity:.9" ng-click="login(user); int()">Đăng Nhập</button>
         </div>
-        <div class="login-footer glass" style="bottom:35px; height:35%;">
+        <div  class="login-footer" style="height:35%;">
             <!--<a ng-href="#/app/register" style="color:#02D652; text-decoration: none;">
               Bạn chưa có tài khoản ?
             </a>-->
