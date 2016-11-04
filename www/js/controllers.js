@@ -201,9 +201,11 @@ app.controller('AppCtrl', function ($scope,$rootScope, $state, $ionicPopup, $ion
         $scope.registerinfo = true;
         $scope.complete = true;
 
-         $scope.scroll = function () {
-            // $location.hash("#" + hotel);
-            $anchorScroll();
+        $scope.removeMargin = function(){
+             $scope.myStyle = {
+                'margin-top': 0 + 'px'
+            }
+            console.log($scope.myStyle);
         };
 
         //thông báo

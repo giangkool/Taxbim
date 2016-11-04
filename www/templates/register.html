@@ -24,13 +24,15 @@
                     <input type="password" placeholder="Xác Nhận Lại Mật Khẩu" style="padding-left:0px; font-size:17px; padding-top:0px; color: #fff; background: transparent">
                 </label>
 
-                 <label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; width: 100%; margin: auto; margin-bottom:10px; margin-top:5px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
+                 <!--<label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; width: 100%; margin: auto; margin-bottom:10px; margin-top:5px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
                     <input  type="text" placeholder="Mã Xác Thực" style="padding-left:0px; font-size:17px; padding-top:0px; color: #fff; background: transparent">
-                </label>
+                </label>-->
 
-                 <label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; float:left; width: 30%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
+                 <!--<label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; float:left; width: 30%; margin: auto; margin-bottom:7px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
                             <input type="text" style="padding-left:0px; color: #fff; background: transparent" value="Ex541az0" readonly>
-                </label>
+                </label>-->
+                <simple-captcha valid="captchaValid" style="float:left; color: #fff; font-size:20px;"></simple-captcha>
+                <div>valid: {{captchaValid}}</div>
             </div>
 
             <div class="padding" ng-show="!logininfo" style="margin-top:30px">
@@ -92,7 +94,7 @@
         
             <!--hoan tat dang ky-->
             
-            <div class="padding" ng-show="!complete">
+            <div id="nav" class="padding" ng-show="!complete" style="margin-top: 200px;" ng-style="myStyle">
 
                 <label class="item item-input" style="border-radius:5px; color: #fff; font-size:25px; width: 100%; margin: auto; margin-bottom:10px; margin-top:5px; background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;">
                     <input type="text" placeholder="Tên kế toán trưởng" style="padding-left:0px; font-size:17px; padding-top:0px; color: #fff; background: transparent">
@@ -109,7 +111,7 @@
             </div>
 
             <div class="padding" ng-show="!complete">
-                 <button class="button waves-effect waves-light button-assertive" style="; color:#fff; font-size:15px; opacity:.7; background: green">Hoàn Tất</button>
+                 <button class="button waves-effect waves-light button-assertive" style="; color:#fff; font-size:15px; opacity:.7; background: green" ng-click="removeMargin()">Hoàn Tất</button>
             </div>
 
        </center>
